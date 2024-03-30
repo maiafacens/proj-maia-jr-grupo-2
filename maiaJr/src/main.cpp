@@ -89,6 +89,16 @@ void parar()
 
 }
 
+void re()
+{
+  
+  digitalWrite(ent1,HIGH);
+  digitalWrite(ent2,LOW);
+  digitalWrite(ent3,LOW);
+  digitalWrite(ent4,HIGH);
+
+}
+
 void caminho()
 {
 
