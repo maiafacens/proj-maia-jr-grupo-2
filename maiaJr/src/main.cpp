@@ -97,6 +97,7 @@ void re()
   digitalWrite(ent3,LOW);
   digitalWrite(ent4,HIGH);
 
+
 }
 
 void caminho()
