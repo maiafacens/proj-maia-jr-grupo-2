@@ -2,18 +2,18 @@
 
 
 //variaveis
-#define pino1 3
-#define pino2 9
-#define ent1 10
-#define ent2 2
-#define ent3 11
-#define ent4 12
-#define trig1 5
-#define ech1 4
-#define trig2 6
-#define ech2 7
-#define trig3 13
-#define ech3 8
+#define pino1 6
+#define pino2 5
+#define ent1 13
+#define ent2 12
+#define ent3 3
+#define ent4 4
+#define trig1 8
+#define ech1 8
+#define trig2 2
+#define ech2 2
+#define trig3 10
+#define ech3 10
 
 
 int ultimaAt1;
