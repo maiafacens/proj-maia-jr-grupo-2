@@ -1,4 +1,7 @@
 #include <Arduino.h>
+#include <NewPing.h>
+
+
 
 
 //variaveis
@@ -8,37 +11,28 @@
 #define ent2 12
 #define ent3 3
 #define ent4 4
-#define trig1 8
-#define ech1 8
-#define trig2 2
-#define ech2 2
-#define trig3 10
-#define ech3 10
+#define max 800
+int distancia_E, distancia_C, distancia_D = 0;
 
-
-int ultimaAt1;
-int ultimaAt2;
-int ultimaAt3;
-int distancia_E;
-int distancia_C;
-int distancia_D;
-const int alertadis = 40;
-unsigned long tempo = 0;
-const unsigned long intervalo = 1500;
+//sensores
+NewPing sonar1(8, 8, max);
+NewPing sonar2(2, 2, max);
+NewPing sonar3(10, 10, max);
 
 //funcoes
+int getd1();
+int getd2();
+int getd3();
 void acelerar();
 void parar();
+void re();
 void esquerda();
 void direita();
-int getDistance1();
-int getDistance2();
-int getDistance3();
 
 void setup()
 {
 
-  Serial.begin(115200);
+  Serial.begin(11500);
   Serial.println("Sistemas iniciando...");
   pinMode(pino1, OUTPUT);
   pinMode(pino2, OUTPUT);
@@ -46,24 +40,16 @@ void setup()
   pinMode(ent2, OUTPUT);
   pinMode(ent3, OUTPUT);
   pinMode(ent4, OUTPUT);
-  pinMode(trig1, OUTPUT);
-  pinMode(ech1,INPUT);
-  pinMode(trig2, OUTPUT);
-  pinMode(ech2,INPUT);
-  pinMode(trig3, OUTPUT);
-  pinMode(ech3,INPUT);
-
-  
 
 }
 
-void loop() 
-{
-  
-  distancia_E = getDistance1();
-  distancia_C = getDistance2();
-  distancia_D = getDistance3();
 
+void loop()
+{
+
+distancia_E = getd1();
+distancia_C = getd2();
+distancia_D = getd3();
 
   if((distancia_D <= alertadis) && (distancia_D > 5)) {
         esquerda();
@@ -81,13 +67,28 @@ void loop()
         acelerar();
   }
 
-
-
-
 }
 
+int getd1()
+{
+  int distancia_E;
+  distancia_E = sonar1.ping_cm();
+  return distancia_E;
+}
 
+int getd2()
+{
+  int distancia_C;
+  distancia_C = sonar2.ping_cm();
+  return distancia_C;
+}
 
+int getd3()
+{
+  int distancia_D;
+  distancia_D = sonar3.ping_cm();
+  return distancia_D;
+}
 
 void acelerar()
 {
@@ -112,7 +113,6 @@ void parar()
 
 }
 
-
 void re()
 {
   
@@ -122,7 +122,6 @@ void re()
   digitalWrite(ent2,LOW);
   digitalWrite(ent3,LOW);
   digitalWrite(ent4,HIGH);
-
 
 }
 
@@ -149,42 +148,3 @@ void esquerda()
   digitalWrite(ent4,LOW);
     
   }
-
-
-int getDistance1()
-{
-
-  int duration, distance_E;
-  digitalWrite(trig1,LOW);
-  digitalWrite(trig1,HIGH);
-  delayMicroseconds(2);
-  digitalWrite(trig1,LOW);
-  duration = pulseIn(ech1,HIGH);
-  distance_E = duration/58.2;
-  return distance_E;
-
-}
-
-int getDistance2()
-{
-  int duration, distance_C;
-  digitalWrite(trig2,LOW);
-  digitalWrite(trig2,HIGH);
-  delayMicroseconds(2);
-  digitalWrite(trig2,LOW);
-  duration = pulseIn(ech2,HIGH);
-  distance_C = duration/58.2;
-  return distance_C;
-}
-
-int getDistance3()
-{
-  int duration, distance_D;
-  digitalWrite(trig3,LOW);
-  digitalWrite(trig3,HIGH);
-  delayMicroseconds(2);
-  digitalWrite(trig3,LOW);
-  duration = pulseIn(ech3,HIGH);
-  distance_D = duration/58.2;
-  return distance_D;
-}
