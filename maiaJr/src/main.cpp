@@ -66,38 +66,19 @@ void loop()
 
 
   if((distancia_D <= alertadis) && (distancia_D > 5)) {
-    while(millis() - tempo <= intervalo){
-      parar();
-      if(millis() - tempo >= intervalo){
-        break;
-      }
-    }
-    esquerda();
+        esquerda();
   }
 
     if((distancia_C <= alertadis) && (distancia_C > 5)) {
-      while(millis() - tempo <= intervalo){
-        parar();
-        if(tempo >= intervalo){ 
-          break;
-      }
-    }
-    esquerda();
+        esquerda();
   }
     
       if((distancia_E <= alertadis) && (distancia_E > 5)) {
-        while(millis() - tempo <= intervalo){
-          
-          parar();
-          if(tempo >= intervalo){ 
-            break;
-      }
-    }
-    direita();
+        direita();
   }
   
-  if((distancia_E > alertadis) && (distancia_C > alertadis) && (distancia_D > alertadis) ){
-    acelerar();
+      if((distancia_E > alertadis) && (distancia_C > alertadis) && (distancia_D > alertadis) ){
+        acelerar();
   }
 
 
