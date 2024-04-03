@@ -1,8 +1,4 @@
-#include <Arduino.h>
 #include <NewPing.h>
-
-
-
 
 //variaveis
 #define pino1 6
@@ -12,6 +8,7 @@
 #define ent3 3
 #define ent4 4
 #define max 400
+const int alertadis = 40;
 int distancia_E, distancia_C, distancia_D = 0;
 
 //sensores
@@ -32,7 +29,7 @@ void direita();
 void setup()
 {
 
-  Serial.begin(11500);
+  Serial.begin(5000);
   Serial.println("Sistemas iniciando...");
   pinMode(pino1, OUTPUT);
   pinMode(pino2, OUTPUT);
@@ -66,7 +63,8 @@ distancia_D = getd3();
       else if((distancia_E > alertadis) && (distancia_C > alertadis) && (distancia_D > alertadis) ){
         acelerar();
   }
-
+  
+  Serial.println(distancia_E);
 }
 
 int getd1()
