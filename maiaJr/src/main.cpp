@@ -63,8 +63,7 @@ distancia_D = getd3();
       else if((distancia_E > alertadis) && (distancia_C > alertadis) && (distancia_D > alertadis) ){
         acelerar();
   }
-  
-  Serial.println(distancia_E);
+
 }
 
 int getd1()
