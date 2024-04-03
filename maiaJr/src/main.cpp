@@ -55,15 +55,15 @@ distancia_D = getd3();
         esquerda();
   }
 
-    if((distancia_C <= alertadis) && (distancia_C > 5)) {
+    else if((distancia_C <= alertadis) && (distancia_C > 5)) {
         esquerda();
   }
     
-      if((distancia_E <= alertadis) && (distancia_E > 5)) {
+      else if((distancia_E <= alertadis) && (distancia_E > 5)) {
         direita();
   }
   
-      if((distancia_E > alertadis) && (distancia_C > alertadis) && (distancia_D > alertadis) ){
+      else if((distancia_E > alertadis) && (distancia_C > alertadis) && (distancia_D > alertadis) ){
         acelerar();
   }
 
