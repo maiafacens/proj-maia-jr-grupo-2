@@ -11,7 +11,7 @@
 #define ent2 12
 #define ent3 3
 #define ent4 4
-#define max 800
+#define max 400
 int distancia_E, distancia_C, distancia_D = 0;
 
 //sensores
