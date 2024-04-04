@@ -3,7 +3,7 @@
 //variaveis
 #define pino1 6
 #define pino2 5
-#define ent1 13
+#define ent1 8
 #define ent2 12
 #define ent3 3
 #define ent4 4
@@ -13,8 +13,8 @@ int distancia_E, distancia_C, distancia_D = 0;
 
 //sensores
 NewPing sonar1(8, 8, max);
-NewPing sonar2(2, 2, max);
-NewPing sonar3(10, 10, max);
+NewPing sonar2(13, 13 , max);
+NewPing sonar3(7, 7, max);
 
 //funcoes
 int getd1();
