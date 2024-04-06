@@ -3,8 +3,8 @@
 //variaveis
 #define pino1 6
 #define pino2 5
-#define ent1 8
-#define ent2 12
+#define ent1 12
+#define ent2 13
 #define ent3 3
 #define ent4 4
 #define max 400
@@ -12,9 +12,9 @@ const int alertadis = 40;
 int distancia_E, distancia_C, distancia_D = 0;
 
 //sensores
-NewPing sonar1(8, 8, max);
-NewPing sonar2(13, 13 , max);
-NewPing sonar3(7, 7, max);
+NewPing sonar1(9, 9, max);
+NewPing sonar2(2, 2  , max);
+NewPing sonar3(11, 11, max);
 
 //funcoes
 int getd1();
